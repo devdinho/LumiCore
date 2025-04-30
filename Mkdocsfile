@@ -4,4 +4,4 @@ COPY . .
 
 RUN pip install mkdocs pymdown-extensions mkdocs-material mkdocstrings[python] mkdocs-gen-files mkdocs-autorefs
 
-EXPOSE 8002
+EXPOSE 8004

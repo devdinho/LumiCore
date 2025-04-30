@@ -15,6 +15,6 @@ RUN poetry install --no-root
 
 COPY . .
 
-EXPOSE 8001
+EXPOSE 8003
 
 CMD ["sh", "./scripts/start.sh"]

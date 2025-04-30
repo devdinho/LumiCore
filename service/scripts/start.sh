@@ -18,4 +18,5 @@ python src/manage.py shell -c "from authentication.models import Profile; \
                            Profile.objects.create_superuser(username='admin',
                            email='admin@example.com', password='123', profileType=1)"
 
+cd /app/src
 gunicorn lumicore.wsgi:application --workers=2 --threads=2 --timeout=120 -b 0.0.0.0:8003
