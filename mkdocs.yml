@@ -1,0 +1,74 @@
+site_name: PlantAgora Docs
+
+
+theme:
+  name: material
+  language: pt
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      toggle:
+        icon: material/brightness-7
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      toggle:
+        icon: material/brightness-4
+  features:
+    - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+    - content.code.select
+    - search.suggest
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    - navigation.instant
+    - navigation.tabs
+
+watch:
+  - docs
+  - service
+
+plugins:
+  - gen-files:
+      scripts:
+        - gen_doc_stubs.py
+  - search
+  - autorefs
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          options:
+            show_source: false
+            docstring_style: google
+            allow_inspection: true
+            members: true
+            inherited_members: true
+            filters: ["!^_"]
+
+
+markdown_extensions:
+  - def_list
+  - tables
+  - admonition
+  - pymdownx.details
+  - pymdownx.emoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      auto_title: true
+      linenums: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true

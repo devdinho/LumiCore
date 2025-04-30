@@ -1,0 +1,7 @@
+FROM python:3.12.6-alpine
+
+COPY . .
+
+RUN pip install mkdocs pymdown-extensions mkdocs-material mkdocstrings[python] mkdocs-gen-files mkdocs-autorefs
+
+EXPOSE 8002

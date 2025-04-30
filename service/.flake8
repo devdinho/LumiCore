@@ -1,0 +1,10 @@
+[flake8]
+ignore = E211, E999, W503
+max-doc-length = 121
+max-line-length = 121
+extend-ignore = E203
+exclude = 
+    migrations 
+    settings 
+    __pycache__
+    Endpoints.py

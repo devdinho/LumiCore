@@ -1,0 +1,43 @@
+services:
+  django:
+    container_name: lumicore_service
+    build:
+      context: ./service
+      dockerfile: Dockerfile
+    ports:
+      - "8003:8003"
+    volumes:
+      - ./service:/app 
+    depends_on:
+      - db
+    env_file: '.env'
+    restart: always
+
+
+  db:
+    env_file: '.env'
+    container_name: lumicore_db
+    image: postgres:17
+    environment:
+      POSTGRES_DB: lumicore_db
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports: 
+      - "${DB_PORT}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+  
+  docs:
+    build:
+      context: .
+      dockerfile: Mkdocsfile
+    container_name: lumicore_docs
+    ports:
+      - "8004:8004"
+    volumes:
+      - .:/app
+    command: mkdocs serve --dev-addr=0.0.0.0:8004 --dirtyreload --watch /app/docs
+    restart: always
+
+volumes:
+  postgres_data:
