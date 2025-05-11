@@ -23,7 +23,7 @@ ALLOWED_HOSTS = [
     "lumicore.dinho.dev"
 ]
 
-CSRF_TRUSTED_ORIGINS = ["http://localhost:8005", "http://0.0.0.0:8005", "https://lumicore.dinho.dev"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost:8003", "http://0.0.0.0:8003", "https://lumicore.dinho.dev"]
 
 CORS_ALLOWED_ORIGINS = CSRF_TRUSTED_ORIGINS
 

@@ -28,5 +28,5 @@ lumicore é uma aplicação web baseada em Django, projetada para monitorar e ge
 
 ### Uso
 
-1. Abra seu navegador web e vá para `http://localhost:8005/` para acessar a aplicação.
+1. Abra seu navegador web e vá para `http://localhost:8003/` para acessar a aplicação.
 1. Abra seu navegador web e vá para `http://localhost:8004/` para acessar a documentação.
