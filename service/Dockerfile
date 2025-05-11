@@ -1,12 +1,17 @@
-FROM python:3.12.6-alpine
+FROM python:3.12
 
 WORKDIR /app
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-RUN apk add --no-cache gcc musl-dev libffi-dev openssl-dev postgresql-dev \
-    && pip install poetry black isort flake8\
+RUN apt-get update && apt-get install -y \
+    gcc \
+    libffi-dev \
+    libssl-dev \
+    libpq-dev \
+    build-essential \
+    && pip install poetry black isort flake8 \
     && poetry config virtualenvs.create false
 
 COPY pyproject.toml poetry.lock ./
@@ -15,6 +20,6 @@ RUN poetry install --no-root
 
 COPY . .
 
-EXPOSE 8003
+EXPOSE 8005
 
 CMD ["sh", "./scripts/start.sh"]

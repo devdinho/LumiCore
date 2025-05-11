@@ -1,8 +1,6 @@
 from rest_framework import serializers
 
 from authentication.models import Profile
-from plantagora.models import Grower
-from plantagora.serializers import GrowerSerializer
 
 
 class ProfileSerializer(serializers.ModelSerializer):
@@ -71,8 +69,3 @@ class ProfileSerializer(serializers.ModelSerializer):
         instance.save()
 
         return instance
-
-    def get_grower(self, instance):
-        """Retorna o Grower associado ao usuário."""
-        objects = Grower.objects.filter(profile=instance)
-        return GrowerSerializer(objects, many=True).data[0] if objects else None

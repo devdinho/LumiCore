@@ -5,14 +5,13 @@ services:
       context: ./service
       dockerfile: Dockerfile
     ports:
-      - "8003:8003"
+      - "8005:8005"
     volumes:
-      - ./service:/app 
+      - ./service:/app
     depends_on:
       - db
     env_file: '.env'
     restart: always
-
 
   db:
     env_file: '.env'
@@ -30,13 +29,14 @@ services:
   docs:
     build:
       context: .
-      dockerfile: Mkdocsfile
+      dockerfile: docs/Mkdocsfile
     container_name: lumicore_docs
     ports:
-      - "8004:8004"
+      - "8006:8006"
     volumes:
       - .:/app
-    command: mkdocs serve --dev-addr=0.0.0.0:8004 --dirtyreload --watch /app/docs
+    working_dir: /app
+    command: mkdocs serve --dev-addr=0.0.0.0:8006 --dirtyreload --watch /docs
     restart: always
 
 volumes:

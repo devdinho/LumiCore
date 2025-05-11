@@ -1,10 +1,10 @@
-# LumiCore
+# lumicore
 
-## Boas vindas à documentação do LumiCore
+## Boas vindas à documentação do lumicore
 
 ### Visão Geral
 
-LumiCore é uma aplicação web baseada em Django, projetada para monitorar e gerenciar o serviço integrado ao modelo de linguagem Billlumy.
+lumicore é uma aplicação web baseada em Django, projetada para monitorar e gerenciar o serviço integrado ao modelo de linguagem Billlumy.
 
 ### Funcionalidades
 
@@ -15,11 +15,11 @@ LumiCore é uma aplicação web baseada em Django, projetada para monitorar e ge
 
 1. Clone o repositório:
     ```bash
-    git clone https://github.com/devdinho/LumiCore.git
+    git clone https://github.com/devdinho/lumicore.git
     ```
 2. Navegue até o diretório do projeto:
     ```bash
-    cd LumiCore
+    cd lumicore
     ```
 3. Construa e inicie os contêineres Docker:
     ```bash
@@ -28,5 +28,5 @@ LumiCore é uma aplicação web baseada em Django, projetada para monitorar e ge
 
 ### Uso
 
-1. Abra seu navegador web e vá para `http://localhost:8003/` para acessar a aplicação.
+1. Abra seu navegador web e vá para `http://localhost:8005/` para acessar a aplicação.
 1. Abra seu navegador web e vá para `http://localhost:8004/` para acessar a documentação.

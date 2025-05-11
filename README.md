@@ -26,7 +26,7 @@ LumiCore é uma aplicação web baseada em Django, projetada para interagir e ge
 
 ## Uso
 
-1. Abra seu navegador web e vá para `http://localhost:8003/`.
+1. Abra seu navegador web e vá para `http://localhost:8005/`.
 
 
 ## Contribuindo
