@@ -1,36 +1,36 @@
-name: Deploy to Production
+# name: Deploy to Production
 
-on:
-  push:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
 
-      - name: Deploy application via SSH
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.VM_IP }}
-          username: ${{ secrets.VM_USER }}
-          password: ${{ secrets.VM_PASSKEY }}
-          port: 22
-          script: |
-            cd ${{ secrets.VM_PWD }}
+#       - name: Deploy application via SSH
+#         uses: appleboy/ssh-action@master
+#         with:
+#           host: ${{ secrets.VM_IP }}
+#           username: ${{ secrets.VM_USER }}
+#           password: ${{ secrets.VM_PASSKEY }}
+#           port: 22
+#           script: |
+#             cd ${{ secrets.VM_PWD }}
 
-            git checkout .
-            git pull origin main -f
+#             git checkout .
+#             git pull origin main -f
 
-            rm -f .env
-            printf 'POSTGRES_USER=%s\n' '${{ secrets.POSTGRES_USER }}' >> .env
-            printf 'POSTGRES_PASSWORD=%s\n' '${{ secrets.POSTGRES_PASSWORD }}' >> .env
-            printf 'DB_PORT=%s\n' '${{ secrets.DB_PORT }}' >> .env
-            printf 'DEBUG=%s\n' '${{ secrets.DEBUG }}' >> .env
-            printf 'SECRET_KEY=%s\n' '${{ secrets.SECRET_KEY }}' >> .env
+#             rm -f .env
+#             printf 'POSTGRES_USER=%s\n' '${{ secrets.POSTGRES_USER }}' >> .env
+#             printf 'POSTGRES_PASSWORD=%s\n' '${{ secrets.POSTGRES_PASSWORD }}' >> .env
+#             printf 'DB_PORT=%s\n' '${{ secrets.DB_PORT }}' >> .env
+#             printf 'DEBUG=%s\n' '${{ secrets.DEBUG }}' >> .env
+#             printf 'SECRET_KEY=%s\n' '${{ secrets.SECRET_KEY }}' >> .env
 
-            docker compose up --build -d
+#             docker compose up --build -d

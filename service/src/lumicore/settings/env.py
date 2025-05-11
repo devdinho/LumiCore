@@ -2,11 +2,11 @@ import os
 
 from dotenv import load_dotenv
 
+load_dotenv(override=True)
+
 from lumicore.settings.base import *
 
 SITE_ID = 1
-
-load_dotenv(override=True)
 
 DEBUG = os.getenv("DEBUG")
 
@@ -14,17 +14,16 @@ POSTGRES_DB = "lumicore_db"
 POSTGRES_USER = os.getenv("POSTGRES_USER")
 POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
 DB_HOST = "lumicore_db"
-DB_PORT = os.getenv("DB_PORT", 5432)
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 ALLOWED_HOSTS = [
     "0.0.0.0",
     "localhost",
-    "lumi-service.dinho.dev"
+    "lumicore.dinho.dev"
 ]
 
-CSRF_TRUSTED_ORIGINS = ["http://localhost:8005", "http://0.0.0.0:8005", "https://lumi-service.dinho.dev"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost:8005", "http://0.0.0.0:8005", "https://lumicore.dinho.dev"]
 
 CORS_ALLOWED_ORIGINS = CSRF_TRUSTED_ORIGINS
 
@@ -35,6 +34,6 @@ DATABASES = {
         "USER": POSTGRES_USER,
         "PASSWORD": POSTGRES_PASSWORD,
         "HOST": DB_HOST,
-        "PORT": DB_PORT,
+        "PORT": 5432,
     }
 }
