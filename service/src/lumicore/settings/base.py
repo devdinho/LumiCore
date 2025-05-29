@@ -24,11 +24,13 @@ LOCAL_APPS = [
 OTHER_APPS = [
     "rest_framework",
     "simple_history",
+    "corsheaders",
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + LOCAL_APPS + OTHER_APPS
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
