@@ -1,0 +1,1 @@
+from lumicore.admin.ChatAdmin import ChatAdmin

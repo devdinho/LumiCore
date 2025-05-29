@@ -26,6 +26,13 @@ class Chat(models.Model):
     verbose_name="User",
   )
   
+  chat_messages = models.JSONField(
+    "Chat Messages",
+    default=list,
+    blank=True,
+    help_text="List of chat messages in the session.",
+  )
+  
   created_at = models.DateTimeField("Created At", auto_now_add=True)
   updated_at = models.DateTimeField("Updated At", auto_now=True)
   
